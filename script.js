@@ -227,7 +227,7 @@ document.body.appendChild(container)
 
 //function to fetch data from makeup api
 async function fetchData(){
-    let apiUrl = "http://makeup-api.herokuapp.com/api/v1/products.json"
+    let apiUrl = "https://makeup-api.herokuapp.com/api/v1/products.json"
     let urlSearch = window.location.search
 
     try{
