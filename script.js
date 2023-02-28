@@ -237,13 +237,17 @@ overlay.innerHTML=`
 </div>`
 document.body.appendChild(overlay)
 
+//=======================================  Functions  =================================================
+
+let mainProductDiv = document.getElementById("mainProductDiv")
+var datalistoptions = document.getElementById("datalistoptions")
 
 //function to fetch data from makeup api
 async function fetchData(){
     document.getElementById("overlay").hidden=false
     let apiUrl = "https://makeup-api.herokuapp.com/api/v1/products.json"
     let urlSearch = window.location.search
-
+    datalistoptions.innerHTML=""
     try{
         let res = await fetch(apiUrl+urlSearch)
         productData = await res.json()
@@ -259,14 +263,11 @@ async function fetchData(){
 
 var productData = fetchData()
 
-let mainProductDiv = document.getElementById("mainProductDiv")
-let datalistoptions = document.getElementById("datalistoptions")
 //function to display data into mainProductDiv element
 
 async function showProductData(searchtext=""){
     if(productData!=undefined){
         mainProductDiv.innerHTML=""
-        datalistoptions.innerHTML=""
         productData.map((prod)=>{
             if(prod.brand==null){
                 prod.brand=""
