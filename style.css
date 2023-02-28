@@ -42,6 +42,21 @@ left: auto;
 display: block;
 }
 
+.spinner-border {
+    width: 5rem; height: 5rem;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 40%;
+    left: 0px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
 .prodlink {
     text-decoration: none;
 }
