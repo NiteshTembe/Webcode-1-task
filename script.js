@@ -218,7 +218,7 @@ document.body.appendChild(nav)
 
 // cntainer  div to show all products
 const container = document.createElement("div")
-container.classList.add("container")
+container.classList.add("container","my-4","py-3")
 const rowdiv = document.createElement("div")
 rowdiv.classList.add("row","row-cols-1","row-cols-sm-2","row-cols-lg-3","row-cols-xl-4","g-4","m-1")
 rowdiv.id="mainProductDiv"
@@ -236,6 +236,9 @@ overlay.innerHTML=`
     </div>
 </div>`
 document.body.appendChild(overlay)
+
+
+
 
 //=======================================  Functions  =================================================
 
@@ -317,3 +320,12 @@ function searchProduct(){
     showProductData(searchtext)
 }
 
+//==========================footer===============================
+
+const footer = document.createElement("footer")
+footer.classList.add("d-flex","justify-content-between","align-items-center","py-3","fixed-bottom","text-bg-dark","bg-dark")
+footer.innerHTML=`<div class="col-md-12 d-flex align-items-center">
+<span class="mb-3 mb-md-0 text-muted">© 2023 Company, Inc</span>
+</div>
+`
+document.body.appendChild(footer)
