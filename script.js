@@ -225,8 +225,22 @@ rowdiv.id="mainProductDiv"
 container.appendChild(rowdiv)
 document.body.appendChild(container)
 
+//spinner overlay 
+const overlay= document.createElement("div")
+overlay.id="overlay"
+overlay.classList.add("overlay")
+overlay.innerHTML=`
+<div class="d-flex justify-content-center">  
+    <div class="spinner-border text-light" role="status">
+    <span class="visually-hidden">Loading...</span>
+    </div>
+</div>`
+document.body.appendChild(overlay)
+
+
 //function to fetch data from makeup api
 async function fetchData(){
+    document.getElementById("overlay").hidden=false
     let apiUrl = "https://makeup-api.herokuapp.com/api/v1/products.json"
     let urlSearch = window.location.search
 
@@ -235,6 +249,7 @@ async function fetchData(){
         productData = await res.json()
         console.log(productData)
         showProductData()
+        document.getElementById("overlay").hidden=true
         return await productData
     }
     catch(err){
